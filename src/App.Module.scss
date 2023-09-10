@@ -1,0 +1,154 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+.container {
+    background-color: $light-grey;
+    min-height: 100vh;
+    padding-top: 4rem;
+}
+
+.card {
+    max-width: 22rem;
+    background-color: $off-white;
+    color: $off-black;
+    margin: 0 auto;
+    width: 95%;
+    padding: 1.5rem .75rem;
+    border-radius: .75rem .75rem 3rem .75rem;
+
+    @include desktop {
+        padding: 1.5rem;
+    }
+
+    .card__header {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        justify-content: start;
+
+        .card__header__item {
+            display: flex;
+            flex-direction: column;
+            gap: .125rem;
+
+            .card__header__item__label {
+                font-size: .35rem;
+                letter-spacing: .1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: $dark-grey;
+
+                &.error {
+                    color: $secondary
+                }
+            }
+
+            .card__header__item__input {
+                width: 100%;
+                min-width: 1rem;
+                max-width: 4rem;
+                border: 1px solid $light-grey;
+                font-weight: 700;
+                background: transparent;
+                border-radius: .25rem;
+                padding: .35rem ;
+                font-size: .75rem;
+
+                &:focus {
+                    outline: 1px solid $primary;
+                }
+
+                &.error {
+                    border: 1px solid $secondary
+                }
+            }
+
+            .card__header__item__error {
+                font-size: .35rem;
+                color: $secondary;
+                font-weight: 400;
+                font-style: italic;
+            }
+        }
+    }
+
+    .card__separator {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1rem 0;
+
+        @include desktop {
+            margin: 0 0;
+        }
+
+        &::before {
+            content: "";
+            height: 1.5px;
+            width: 100%;
+            background-color: $light-grey;
+        }
+
+        &::after {
+            content: "";
+            height: 1.5px;
+            width: 100%;
+            background-color: $light-grey;
+
+            @include desktop {
+                display: none;
+            }
+        }
+
+        .card__separator__icon {
+            background-color: $primary;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            padding: .6rem;
+            width: 2rem;
+            border-radius: 10rem;
+
+            &:hover {
+                background-color: $off-black;
+            }
+
+            @include desktop {
+                height: 2.5rem;
+                width: 2.5rem;
+            }
+        }
+    }
+
+    .card__body {
+        display: flex;
+        flex-direction: column;
+
+        .card__body__item {
+            display: flex;
+            flex-direction: row;
+            gap: .25rem;
+            line-height: 2rem;
+            font-size: 1.75rem;
+
+            @include desktop {
+                font-size: 2.5rem;
+                line-height: 2.75rem;
+            }
+
+            .card__body__item__value {
+                color: $primary;
+                font-weight: 800;
+                font-style: italic;
+            }
+
+            .card__body__item__label {
+                font-weight: 800;
+                font-style: italic;
+            }
+        }
+    }
+}
